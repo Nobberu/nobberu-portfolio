@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-main-red: "#ec004a";
+  --bg: #0b1215;
+  --text: #dfdfdf;
+}
+
+html {
+  position: relative;
+}
+
+* {
+  font-family: "Zalando Sans SemiExpanded", sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
