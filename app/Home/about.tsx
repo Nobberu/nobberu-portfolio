@@ -1,10 +1,13 @@
+import Link from "next/link";
+import Image from "next/image";
+
 export default function About() {
   return (
     <div className="h-screen flex">
       <div className="w-5/12"></div>
-      <div className="w-7/12 flex flex-col justify-center p-30">
+      <div className="w-7/12 flex flex-col justify-center p-45">
         <h1 className="text-5xl mb-10">
-          It's{" "}
+          It's
           <span className="font-light hover:font-extrabold transition-all duration-450">
             Nobbel
           </span>
@@ -23,46 +26,102 @@ export default function About() {
           corporis voluptate sapiente.
         </p>
         <div className="flex relative mt-25 gap-x-20">
-          <a
+          <Link
             href=""
             className="absolute font-light hover:font-extrabold transition-all duration-450"
           >
-            <img src="linkedin.webp" alt="" className="w-14" />
+            <Image
+              src="/linkedin.webp"
+              alt="Linkedin"
+              width={56}
+              height={56}
+              className="w-14 h-14"
+              priority
+            />
             <div className="flex justify-center items-center mt-3">
               <p>Linkedin</p>
-              <img src="arrow.webp" alt="" className="w-3 h-3 ml-3" />
+              <Image
+                src="/arrow.webp"
+                alt="Arrow"
+                className="w-3 h-3 ml-3"
+                width={12}
+                height={12}
+                priority
+              />
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href=""
             className="absolute left-50 font-light hover:font-extrabold transition-all duration-450"
           >
-            <img src="instagram.webp" alt="" className="w-14" />
+            <Image
+              src="/instagram.webp"
+              alt="Instagram"
+              width={56}
+              height={56}
+              className="w-14 h-14"
+              priority
+            />
             <div className="flex justify-center items-center mt-3">
               <p>Instagram</p>
-              <img src="arrow.webp" alt="" className="w-3 h-3 ml-3" />
+              <Image
+                src="/arrow.webp"
+                alt="Arrow"
+                className="w-3 h-3 ml-3"
+                width={12}
+                height={12}
+                priority
+              />
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href=""
             className="absolute left-100 font-light hover:font-extrabold transition-all duration-450"
           >
-            <img src="github.webp" alt="" className="w-14" />
+            <Image
+              src="/github.webp"
+              alt="GitHub"
+              width={56}
+              height={56}
+              className="w-14 h-14"
+              priority
+            />
             <div className="flex justify-center items-center mt-3">
               <p>GitHub</p>
-              <img src="arrow.webp" alt="" className="w-3 h-3 ml-3" />
+              <Image
+                src="/arrow.webp"
+                alt="Arrow"
+                className="w-3 h-3 ml-3"
+                width={12}
+                height={12}
+                priority
+              />
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             href=""
             className="absolute left-150 font-light hover:font-extrabold transition-all duration-450"
           >
-            <img src="whatsapp.webp" alt="" className="w-14" />
+            <Image
+              src="/whatsapp.webp"
+              alt="WhatsApp"
+              width={56}
+              height={56}
+              className="w-14 h-14"
+              priority
+            />
             <div className="flex justify-center items-center mt-3">
               <p>Whatsapp</p>
-              <img src="arrow.webp" alt="" className="w-3 h-3 ml-3" />
+              <Image
+                src="/arrow.webp"
+                alt="Arrow"
+                className="w-3 h-3 ml-3"
+                width={12}
+                height={12}
+                priority
+              />
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

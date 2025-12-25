@@ -1,6 +1,6 @@
 export default function Bento() {
   return (
-    <div className="h-screen w-screen grid grid-cols-1 md:grid-cols-4 md:grid-rows-6 gap-4 py-40 px-60">
+    <div className="h-screen w-screen grid grid-cols-1 md:grid-cols-4 md:grid-rows-6 gap-4 py-40 px-45">
       <div className="md:col-span-2 md:row-span-3 rounded-3xl border border-neutral-700 p-8 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-zinc-950 transition duration-450">
         <span className="text-neutral-400">Insights</span>
         <div className="h-full flex flex-col items-center justify-center">

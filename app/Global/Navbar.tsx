@@ -10,6 +10,7 @@ import { useGSAP } from "@gsap/react";
 
 const Navbar = () => {
   const pathname = usePathname();
+
   const isFullMode = pathname.startsWith("/Full");
   const basePath = isFullMode ? "/Full" : "";
 
@@ -21,11 +22,11 @@ const Navbar = () => {
     if (isFullMode) {
       gsap.to(fullRef.current, {
         opacity: 1,
-        duration: 0.4,
+        duration: 0.5,
       });
       gsap.to(compactRef.current, {
         opacity: 0,
-        duration: 0.4,
+        duration: 0.5,
       });
       gsap.to(modeCont.current, {
         y: -16,
@@ -33,11 +34,11 @@ const Navbar = () => {
     } else if (isFullMode == false) {
       gsap.to(compactRef.current, {
         opacity: 1,
-        duration: 0.4,
+        duration: 0.5,
       });
       gsap.to(fullRef.current, {
         opacity: 0,
-        duration: 0.4,
+        duration: 0.5,
       });
       gsap.to(modeCont.current, {
         y: 13,
@@ -47,13 +48,15 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="flex fixed left-0 right-0 items-center justify-between py-20 px-60 text-lg font-light">
-        <div className="flex space-x-10 relative">
-          <h2 className="text-transparent">nobberu.</h2>
-          <h2 className="absolute font-light hover:font-extrabold transition-all duration-300">
-            nobberu.
-          </h2>
-        </div>
+      <nav className="flex fixed left-0 right-0 items-center justify-between py-20 px-45 text-lg font-light z-49">
+        <Link
+          href={pathname.startsWith("/Full") ? "/Full" : "/"}
+          className="flex space-x-10 items-center relative font-light hover:font-extrabold transition-all duration-600"
+        >
+            <img src="icon.png" alt="" className="w-4.5 h-3" />
+            <div className="w-10"></div>
+            <h2 className="absolute left-9 cursor-pointer">nobberu.</h2>
+        </Link>
 
         <ul className="flex row space-x-10">
           {navLink.map((link) => (

@@ -2,8 +2,8 @@
 
 @theme {
   --color-main-red: #ec004a;
-  --bg: #0b1215;
-  --text: #dfdfdf;
+  --color-bg: #0b1215;
+  --color-text: #dfdfdf;
 }
 
 ::selection {
@@ -12,11 +12,11 @@
 
 body {
   font-family: var(--font-zalando), sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   overflow-x: hidden;
 }
 
-.cursor-follow {
+.cursor {
   transform: translate(-50%, -50%);
 }

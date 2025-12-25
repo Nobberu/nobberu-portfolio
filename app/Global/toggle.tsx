@@ -28,7 +28,7 @@ export default function RedirectToggle() {
       onClick={toggleSwitch}
       className={`
         w-12 h-6 rounded-full transition-colors duration-300 ease-in-out flex items-center
-        ${isOn ? "bg-[#ec004a]" : "bg-gray-300"}
+        ${isOn ? "bg-main-red" : "bg-gray-300"}
       `}
     >
       <div
