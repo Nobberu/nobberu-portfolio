@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Zalando_Sans_SemiExpanded } from "next/font/google";
 import "./globals.css";
-import Navbar from "./Navbar/page";
+import Navbar from "./Global/Navbar";
+import Cursor from "./Global/Cursor";
 
-const Zalando = Zalando_Sans_SemiExpanded({
-  variable: "--font-zalando-sans-semiexp",
+const zalandoSans = Zalando_Sans_SemiExpanded({
   subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-zalando",
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -20,10 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${Zalando.variable} antialiased`}>
+    <html lang="en" className={`${zalandoSans.variable} antialiased`}>
+      <body>
+        <Cursor />
         <Navbar />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

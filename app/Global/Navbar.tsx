@@ -10,12 +10,12 @@ import { useGSAP } from "@gsap/react";
 
 const Navbar = () => {
   const pathname = usePathname();
-  const isFullMode = pathname.startsWith("/full-mode");
-  const basePath = isFullMode ? "/full-mode" : "";
+  const isFullMode = pathname.startsWith("/Full");
+  const basePath = isFullMode ? "/Full" : "";
 
-  const compactRef = useRef(null);
-  const fullRef = useRef(null);
-  const modeCont = useRef(null);
+  const compactRef = useRef<HTMLDivElement>(null);
+  const fullRef = useRef<HTMLDivElement>(null);
+  const modeCont = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     if (isFullMode) {
@@ -47,10 +47,12 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="flex fixed left-0 right-0 justify-between my-20 px-60 text-lg font-light">
-        <div className="flex space-x-10">
-          <img src="null" alt="logo" />
-          <h2>nobberu.</h2>
+      <nav className="flex fixed left-0 right-0 items-center justify-between py-20 px-60 text-lg font-light">
+        <div className="flex space-x-10 relative">
+          <h2 className="text-transparent">nobberu.</h2>
+          <h2 className="absolute font-light hover:font-extrabold transition-all duration-300">
+            nobberu.
+          </h2>
         </div>
 
         <ul className="flex row space-x-10">
