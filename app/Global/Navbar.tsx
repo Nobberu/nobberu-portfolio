@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="flex fixed left-0 right-0 items-center justify-between py-20 px-45 text-lg font-light z-49">
+      <nav className="flex fixed left-0 right-0 items-center justify-between pt-20 px-45 text-lg font-light z-49">
         <Link
           href={pathname.startsWith("/Full") ? "/Full" : "/"}
           className="flex space-x-10 items-center relative font-light hover:font-extrabold transition-all duration-600"
