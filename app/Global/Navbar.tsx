@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { navLink } from "../const";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Modes from "./toggle";
 import gsap from "gsap";
@@ -53,9 +54,17 @@ const Navbar = () => {
           href={pathname.startsWith("/Full") ? "/Full" : "/"}
           className="flex space-x-10 items-center relative font-light hover:font-extrabold transition-all duration-600"
         >
-            <img src="icon.png" alt="" className="w-4.5 h-3" />
-            <div className="w-10"></div>
-            <h2 className="absolute left-9 cursor-pointer">nobberu.</h2>
+          <Image
+            src="/icon.png"
+            alt="Nobberu Logo"
+            className="w-4.5 h-3"
+            height={12}
+            width={18}
+            priority
+            fetchPriority="high"
+          />
+          <div className="w-10"></div>
+          <h2 className="absolute left-9 cursor-pointer">nobberu.</h2>
         </Link>
 
         <ul className="flex row space-x-10">

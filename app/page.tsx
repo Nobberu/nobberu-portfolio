@@ -4,10 +4,10 @@ import Hero from "./Home/hero";
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Hero />
       <About />
       <Bento />
-    </div>
+    </main>
   );
 }

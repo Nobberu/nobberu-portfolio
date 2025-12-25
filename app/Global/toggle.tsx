@@ -25,6 +25,7 @@ export default function RedirectToggle() {
 
   return (
     <button
+      aria-label="Mode Toggle"
       onClick={toggleSwitch}
       className={`
         w-12 h-6 rounded-full transition-colors duration-300 ease-in-out flex items-center

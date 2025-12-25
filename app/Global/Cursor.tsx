@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import Image from "next/image";
 
 export default function Page() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -67,13 +68,19 @@ export default function Page() {
   }, []);
 
   return (
-    <div>
       <div
         ref={cursorRef}
         className="cursor flex justify-center p-1.5 items-center mix-blend-difference fixed w-5 h-5 rounded-full bg-white pointer-events-none z-50"
       >
-        <img src="arrow.webp" className="w-2 invert rotate-90 opacity-0" />
+        <Image
+          src="/arrow.webp"
+          alt="Cursor Arrow"
+          width={8}
+          height={8}
+          className="w-2 invert rotate-90 opacity-0"
+          priority
+          fetchPriority="high"
+        />
       </div>
-    </div>
   );
 }

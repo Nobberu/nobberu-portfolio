@@ -7,7 +7,7 @@ export default function About() {
       <div className="w-5/12"></div>
       <div className="w-7/12 flex flex-col justify-center p-45">
         <h1 className="text-5xl mb-10">
-          It's
+          It's&nbsp;
           <span className="font-light hover:font-extrabold transition-all duration-450">
             Nobbel
           </span>
@@ -36,7 +36,6 @@ export default function About() {
               width={56}
               height={56}
               className="w-14 h-14"
-              priority
             />
             <div className="flex justify-center items-center mt-3">
               <p>Linkedin</p>
@@ -46,7 +45,6 @@ export default function About() {
                 className="w-3 h-3 ml-3"
                 width={12}
                 height={12}
-                priority
               />
             </div>
           </Link>
@@ -60,7 +58,6 @@ export default function About() {
               width={56}
               height={56}
               className="w-14 h-14"
-              priority
             />
             <div className="flex justify-center items-center mt-3">
               <p>Instagram</p>
@@ -70,7 +67,6 @@ export default function About() {
                 className="w-3 h-3 ml-3"
                 width={12}
                 height={12}
-                priority
               />
             </div>
           </Link>
@@ -84,7 +80,6 @@ export default function About() {
               width={56}
               height={56}
               className="w-14 h-14"
-              priority
             />
             <div className="flex justify-center items-center mt-3">
               <p>GitHub</p>
@@ -94,7 +89,6 @@ export default function About() {
                 className="w-3 h-3 ml-3"
                 width={12}
                 height={12}
-                priority
               />
             </div>
           </Link>
@@ -108,7 +102,6 @@ export default function About() {
               width={56}
               height={56}
               className="w-14 h-14"
-              priority
             />
             <div className="flex justify-center items-center mt-3">
               <p>Whatsapp</p>
@@ -118,7 +111,6 @@ export default function About() {
                 className="w-3 h-3 ml-3"
                 width={12}
                 height={12}
-                priority
               />
             </div>
           </Link>

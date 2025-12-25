@@ -1,11 +1,12 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Zalando_Sans_SemiExpanded } from "next/font/google";
-import "./globals.css";
 import Navbar from "./Global/Navbar";
 import Cursor from "./Global/Cursor";
 
 const zalandoSans = Zalando_Sans_SemiExpanded({
   subsets: ["latin"],
+  display: "swap",
   style: ["normal", "italic"],
   variable: "--font-zalando",
   adjustFontFallback: false,

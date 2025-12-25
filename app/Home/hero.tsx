@@ -1,20 +1,31 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <div className="h-screen flex flex-col justify-center">
       <div className="w-full h-full relative flex justify-center items-center">
-        <img
-          src="straight.webp"
-          alt=""
-          className="absolute right-180 rotate-180 pointer-events-none w-10"
+        <Image
+          src="/straight.webp"
+          alt="Straight Arrow"
+          className="absolute right-180 rotate-180 pointer-events-none w-10 z-2"
+          width={40}
+          height={40}
+          priority
+          fetchPriority="high"
         />
-        <p className="absolute right-90 pointer-events-none">
+        <p className="absolute right-90 pointer-events-none z-2">
           Hover anywhere to see the negative effect.
         </p>
-        {/* <img
-          src="aul.JPG"
-          alt=""
-          className="h-1/2 hover:h-2/3 w-full object-cover transition-all duration-450 "
-        /> */}
+        <div className="relative h-1/2 hover:h-2/3 w-full transition-all duration-450 z-1">
+          <Image
+            src="/aul.JPG"
+            alt="Hero Image"
+            className="object-cover"
+            fill
+            priority
+            fetchPriority="high"
+          />
+        </div>
       </div>
       <div className="absolute bottom-0 flex w-full justify-between items-end">
         <div className="text-[200px] leading-[.9] font-light hover:font-extrabold transition-all duration-600">
