@@ -4,15 +4,28 @@ import Image from "next/image";
 export default function About() {
   return (
     <div className="h-screen flex">
-      <div className="w-5/12"></div>
+      <div className="w-5/12 flex flex-col justify-center p-40">
+        <Image
+          src="/nobbel.webp"
+          alt="nobbel"
+          width={403}
+          height={716}
+          sizes="(max-width:768px) 100vw, 33vw"
+          quality={50}
+          className="w-full h-auto ml-15 mt-15"
+        />
+      </div>
       <div className="w-7/12 flex flex-col justify-center p-45">
-        <h1 className="text-5xl mb-10">
+        <h1 className="text-5xl mb-2">
           It's&nbsp;
           <span className="font-light hover:font-extrabold transition-all duration-450">
             Nobbel
           </span>
           .
         </h1>
+        <h4 className="text-xl mb-10 italic text-neutral-400 font-light">
+          "I build digital experiences that look as good as they feel."
+        </h4>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae,
           esse doloribus aut rem eius quis illo deleniti nemo enim harum.

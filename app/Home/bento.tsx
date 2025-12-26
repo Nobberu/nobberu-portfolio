@@ -1,7 +1,7 @@
 export default function Bento() {
   return (
     <div className="h-screen w-screen grid grid-cols-1 md:grid-cols-4 md:grid-rows-6 gap-4 py-40 px-45">
-      <div className="md:col-span-2 md:row-span-3 rounded-3xl border border-neutral-700 p-8 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-zinc-950 transition duration-450">
+      <div className="md:col-span-2 md:row-span-3 rounded-3xl border border-neutral-700 p-8 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-bg transition duration-450">
         <span className="text-neutral-400">Insights</span>
         <div className="h-full flex flex-col items-center justify-center">
           <div className="text-9xl font-medium mb-2">
@@ -11,7 +11,7 @@ export default function Bento() {
         </div>
       </div>
 
-      <div className="md:row-span-2 rounded-3xl border border-neutral-700 p-6 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-zinc-950 transition duration-450">
+      <div className="md:row-span-2 rounded-3xl border border-neutral-700 p-6 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-bg transition duration-450">
         <span className="text-neutral-400">Expertise</span>
         <div className="h-full flex flex-col items-center justify-center">
           <div className="text-6xl font-medium">100%</div>
@@ -19,7 +19,7 @@ export default function Bento() {
         </div>
       </div>
 
-      <div className="md:row-span-2 rounded-3xl border border-neutral-700 p-6 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-zinc-950 transition duration-450">
+      <div className="md:row-span-2 rounded-3xl border border-neutral-700 p-6 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-bg transition duration-450">
         <span className="text-neutral-400">Bugs</span>
         <div className="h-full flex flex-col items-center justify-center">
           <div className="text-6xl font-medium">0</div>
@@ -27,7 +27,7 @@ export default function Bento() {
         </div>
       </div>
 
-      <div className="md:col-span-2 md:row-span-4 rounded-3xl border border-neutral-700 p-8 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-zinc-950 transition duration-450">
+      <div className="md:col-span-2 md:row-span-4 rounded-3xl border border-neutral-700 p-8 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-bg transition duration-450">
         <span className="text-neutral-400">Overview</span>
         <div className="h-full flex flex-col items-center justify-center">
           <div className="text-9xl font-medium mb-2">
@@ -39,7 +39,7 @@ export default function Bento() {
         </div>
       </div>
 
-      <div className="md:row-span-3 rounded-3xl border border-neutral-700 p-6 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-zinc-950 transition duration-450">
+      <div className="md:row-span-3 rounded-3xl border border-neutral-700 p-6 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-bg transition duration-450">
         <span className="text-neutral-400">Github</span>
         <div className="h-full flex flex-col items-center justify-center">
           <div className="text-6xl font-medium">8+</div>
@@ -47,7 +47,7 @@ export default function Bento() {
         </div>
       </div>
 
-      <div className="md:row-span-3 rounded-3xl border border-neutral-700 p-6 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-zinc-950 transition duration-450">
+      <div className="md:row-span-3 rounded-3xl border border-neutral-700 p-6 flex flex-col justify-between hover:-translate-y-4 bg-linear-to-t hover:from-zinc-900 from-bg transition duration-450">
         <span className="text-neutral-400">*Healthy</span>
         <div className="h-full flex flex-col items-center justify-center">
           <div className="text-6xl font-medium">200+</div>

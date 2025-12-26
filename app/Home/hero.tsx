@@ -7,7 +7,7 @@ export default function Hero() {
         <Image
           src="/straight.webp"
           alt="Straight Arrow"
-          className="absolute right-180 rotate-180 pointer-events-none w-10 z-2"
+          className="absolute right-183 rotate-180 pointer-events-none w-10 z-2"
           width={40}
           height={40}
           priority
@@ -16,18 +16,18 @@ export default function Hero() {
         <p className="absolute right-90 pointer-events-none z-2">
           Hover anywhere to see the negative effect.
         </p>
-        <div className="relative h-1/2 hover:h-2/3 w-full transition-all duration-450 z-1">
+        <div className="relative h-1/2 hover:h-[calc(100vw/2.35)] w-full transition-all duration-450 z-1">
           <Image
-            src="/aul.JPG"
+            src="/hero.JPG"
             alt="Hero Image"
-            className="object-cover"
             fill
             priority
             fetchPriority="high"
+            className="object-cover object-[center_46%]"
           />
         </div>
       </div>
-      <div className="absolute bottom-0 flex w-full justify-between items-end">
+      <div className="absolute bottom-0 flex w-full justify-between items-end z-2">
         <div className="text-[200px] leading-[.9] font-light hover:font-extrabold transition-all duration-600">
           Portfolio
         </div>

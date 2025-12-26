@@ -6,6 +6,10 @@
   --color-text: #dfdfdf;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 ::selection {
   background-color: var(--color-main-red);
 }
