@@ -12,8 +12,8 @@ import { useGSAP } from "@gsap/react";
 const Navbar = () => {
   const pathname = usePathname();
 
-  const isFullMode = pathname.startsWith("/Full");
-  const basePath = isFullMode ? "/Full" : "";
+  const isFullMode = pathname.startsWith("/full");
+  const basePath = isFullMode ? "/full" : "";
 
   const compactRef = useRef<HTMLDivElement>(null);
   const fullRef = useRef<HTMLDivElement>(null);
@@ -51,7 +51,7 @@ const Navbar = () => {
     <header>
       <nav className="flex fixed left-0 right-0 items-center justify-between pt-20 px-45 text-lg font-light z-49">
         <Link
-          href={pathname.startsWith("/Full") ? "/Full" : "/"}
+          href={pathname.startsWith("/full") ? "/full" : "/"}
           className="brand flex space-x-10 items-center relative font-light hover:font-extrabold transition-all duration-600"
         >
           <Image

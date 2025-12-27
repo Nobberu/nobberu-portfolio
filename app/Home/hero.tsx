@@ -18,7 +18,7 @@ export default function Hero() {
         </p>
         <div className="relative h-1/2 hover:h-[calc(100vw/2.35)] w-full transition-all duration-450 z-1">
           <Image
-            src="/hero.jpg"
+            src="/hero-temp.jpg"
             alt="Hero Image"
             fill
             priority

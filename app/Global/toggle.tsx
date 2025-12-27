@@ -6,7 +6,7 @@ import { useRouter, usePathname } from "next/navigation";
 export default function RedirectToggle() {
   const router = useRouter();
   const pathname = usePathname();
-  const [isOn, setIsOn] = useState(pathname.startsWith("/Full"));
+  const [isOn, setIsOn] = useState(pathname.startsWith("/full"));
 
   const toggleSwitch = () => {
     const newState = !isOn;
@@ -14,7 +14,7 @@ export default function RedirectToggle() {
 
     if (newState === true) {
       setTimeout(() => {
-        router.push("/Full");
+        router.push("/full");
       }, 300);
     } else {
       setTimeout(() => {

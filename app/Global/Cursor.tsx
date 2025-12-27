@@ -10,7 +10,6 @@ export default function Cursor() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // ... (Keep your existing mouse movement logic here) ...
     const handleMouseMove = (e: MouseEvent) => {
       gsap.to(cursorRef.current, {
         x: e.clientX,
