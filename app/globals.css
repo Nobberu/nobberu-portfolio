@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-main-red: #ec004a;
+  --color-bg: #0b1215;
+  --color-text: #dfdfdf;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  background-color: var(--color-main-red);
+}
+
+body {
+  font-family: var(--font-zalando), sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+.cursor {
+  transform: translate(-50%, -50%);
+}
