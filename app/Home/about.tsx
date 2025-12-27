@@ -16,14 +16,14 @@ export default function About() {
         />
       </div>
       <div className="w-7/12 flex flex-col justify-center p-45">
-        <h1 className="text-5xl mb-2">
+        <h1 className="text-5xl mb-2.5">
           It's&nbsp;
           <span className="font-light hover:font-extrabold transition-all duration-450">
             Nobbel
           </span>
           .
         </h1>
-        <h4 className="text-xl mb-10 italic text-neutral-400 font-light">
+        <h4 className="text-lg mb-8 italic text-neutral-400 font-light">
           "I build digital experiences that look as good as they feel."
         </h4>
         <p>

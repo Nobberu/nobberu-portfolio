@@ -52,7 +52,7 @@ const Navbar = () => {
       <nav className="flex fixed left-0 right-0 items-center justify-between pt-20 px-45 text-lg font-light z-49">
         <Link
           href={pathname.startsWith("/Full") ? "/Full" : "/"}
-          className="flex space-x-10 items-center relative font-light hover:font-extrabold transition-all duration-600"
+          className="brand flex space-x-10 items-center relative font-light hover:font-extrabold transition-all duration-600"
         >
           <Image
             src="/icon.png"
@@ -70,7 +70,9 @@ const Navbar = () => {
         <ul className="flex row space-x-10">
           {navLink.map((link) => (
             <li key={link.label}>
-              <Link href={`${basePath}${link.href}`}>{link.label}</Link>
+              <Link href={`${basePath}${link.href}`} className="hover:">
+                {link.label}
+              </Link>
             </li>
           ))}
         </ul>
