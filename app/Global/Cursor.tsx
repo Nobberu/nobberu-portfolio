@@ -66,7 +66,7 @@ export default function Cursor() {
         });
       }
 
-      //   Vertical cursor style
+      //   Vertical cursor style 
       else if (cursorImage && NavbarLink) {
         gsap.to(cursorRef.current, {
           height: 30,
@@ -105,6 +105,7 @@ export default function Cursor() {
       }
     };
 
+    // Base cursor style
     const onLeave = () => {
       gsap.to(cursorRef.current, {
         scale: 1,
@@ -145,7 +146,7 @@ export default function Cursor() {
   return (
     <div
       ref={cursorRef}
-      className="cursor flex justify-center p-1.5 items-center mix-blend-difference fixed w-5 h-5 bg-white pointer-events-none z-50 top-0 left-0"
+      className="cursor md:flex hidden justify-center p-1.5 items-center mix-blend-difference fixed w-5 h-5 bg-white pointer-events-none z-50 top-0 left-0"
     >
       <Image
         src="/arrow.webp"

@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${zalandoSans.variable} antialiased`}>
-      <body>
+      <body className="overflow-x-hidden">
         <Cursor />
         <Navbar />
         {children}

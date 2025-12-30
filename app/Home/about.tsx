@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <div className="h-screen flex">
-      <div className="w-5/12 flex flex-col justify-center p-40">
+    <div className="md:h-screen h-auto w-screen flex md:flex-row flex-col overflow-x-hidden">
+      <div className="md:w-5/12 w-full flex flex-col justify-center p-40">
         <Image
           src="/nobbel.webp"
           alt="nobbel"
@@ -15,16 +15,17 @@ export default function About() {
           className="w-full h-auto ml-15 mt-15"
         />
       </div>
-      <div className="w-7/12 flex flex-col justify-center p-45">
+      <div className="md:w-7/12 w-full flex flex-col justify-center md:p-45 p-6">
         <h1 className="text-5xl mb-2.5">
-          It's&nbsp;
+          It&apos;s&nbsp;
           <span className="font-light hover:font-extrabold transition-all duration-450">
             Nobbel
           </span>
           .
         </h1>
         <h4 className="text-lg mb-8 italic text-neutral-400 font-light">
-          "I build digital experiences that look as good as they feel."
+          &quot;I build digital experiences that look as good as they
+          feel.&quot;
         </h4>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae,
@@ -38,10 +39,10 @@ export default function About() {
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio
           corporis voluptate sapiente.
         </p>
-        <div className="flex relative mt-25 gap-x-20">
+        <div className="flex flex-wrap relative mt-15 md:space-x-25 space-x-9 md:space-y-0 space-y-9">
           <Link
             href=""
-            className="absolute font-light hover:font-extrabold transition-all duration-450"
+            className="font-light hover:font-extrabold transition-all duration-450"
           >
             <Image
               src="/linkedin.webp"
@@ -63,7 +64,7 @@ export default function About() {
           </Link>
           <Link
             href=""
-            className="absolute left-50 font-light hover:font-extrabold transition-all duration-450"
+            className="font-light hover:font-extrabold transition-all duration-450"
           >
             <Image
               src="/instagram.webp"
@@ -85,7 +86,7 @@ export default function About() {
           </Link>
           <Link
             href=""
-            className="absolute left-100 font-light hover:font-extrabold transition-all duration-450"
+            className="font-light hover:font-extrabold transition-all duration-450"
           >
             <Image
               src="/github.webp"
@@ -107,7 +108,7 @@ export default function About() {
           </Link>
           <Link
             href=""
-            className="absolute left-150 font-light hover:font-extrabold transition-all duration-450"
+            className="font-light hover:font-extrabold transition-all duration-450"
           >
             <Image
               src="/whatsapp.webp"
