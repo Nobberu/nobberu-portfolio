@@ -2,8 +2,8 @@
 
 @theme {
     --color-main-red: #ec004a;
-    --color-bg: #0b1215;
-    --color-text: #dfdfdf;
+    --color-bg: #f4f4f4;
+    --color-text: #0b1215;
 }
 
 ::-webkit-scrollbar {
@@ -19,8 +19,4 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     overflow-x: hidden;
-}
-
-.cursor {
-    transform: translate(-50%, -50%);
 }

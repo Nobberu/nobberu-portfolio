@@ -10,133 +10,76 @@ export default function Cursor() {
   const pathname = usePathname();
 
   useEffect(() => {
+    const cursor = cursorRef.current;
+    if (!cursor) return;
+
+    const xTo = gsap.quickTo(cursor, "x", {
+      duration: 0.3,
+      ease: "power2.out",
+    });
+    const yTo = gsap.quickTo(cursor, "y", {
+      duration: 0.3,
+      ease: "power2.out",
+    });
+
+    gsap.set(cursor, { xPercent: -50, yPercent: -50 });
+
     const handleMouseMove = (e: MouseEvent) => {
-      gsap.to(cursorRef.current, {
-        x: e.clientX,
-        y: e.clientY,
-        duration: 0.4,
-        ease: "power2.out",
-      });
+      xTo(e.clientX);
+      yTo(e.clientY);
     };
-    document.addEventListener("mousemove", handleMouseMove);
-    return () => document.removeEventListener("mousemove", handleMouseMove);
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   useEffect(() => {
-    const Hoverable = document.querySelectorAll('[class*="hover:"]');
-    const cursorImage = cursorRef.current?.querySelector("img");
+    const cursor = cursorRef.current;
+    const cursorImage = cursor?.querySelector("img");
 
-    const onEnter = (e: Event) => {
-      const el = e.currentTarget as HTMLElement;
+    if (!cursor || !cursorImage) return;
 
-      const NavbarLink = el.closest("nav");
-      const Brand = el.closest("nav") && el.classList.contains("brand");
+    const targets = document.querySelectorAll('[class*="hover:"]');
 
-      // Generic hover
-      gsap.to(cursorRef.current, {
-        scale: 5,
-        width: 20,
-        height: 20,
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: 50,
-        left: 0,
-        top: 0,
-        duration: 0.5,
+    const onEnter = () => {
+      gsap.to(cursor, {
+        scale: 4,
+        duration: 0.3,
         ease: "power3.out",
       });
 
-      //   Brand vertical cursor style
-      if (cursorImage && Brand) {
-        gsap.to(cursorRef.current, {
-          height: 30,
-          width: 30,
-          alignItems: "end",
-          justifyContent: "center",
-          duration: 0.5,
-          borderRadius: 0,
-          top: 43,
-          ease: "power3.out",
-        });
-        gsap.to(cursorImage, {
-          opacity: 1,
-          rotate: 360,
-          duration: 0.5,
-          ease: "power3.out",
-        });
-      }
-
-      //   Vertical cursor style 
-      else if (cursorImage && NavbarLink) {
-        gsap.to(cursorRef.current, {
-          height: 30,
-          alignItems: "end",
-          justifyContent: "center",
-          duration: 0.5,
-          borderRadius: 0,
-          top: 43,
-          ease: "power3.out",
-        });
-        gsap.to(cursorImage, {
-          opacity: 1,
-          rotate: 360,
-          duration: 0.5,
-          ease: "power3.out",
-        });
-      }
-
-      //   Horizontal cursor style
-      else if (cursorImage && el.tagName === "A") {
-        gsap.to(cursorRef.current, {
-          width: 40,
-          alignItems: "center",
-          justifyContent: "end",
-          duration: 0.5,
-          borderRadius: 0,
-          left: 50,
-          ease: "power3.out",
-        });
-        gsap.to(cursorImage, {
-          opacity: 1,
-          rotate: 360,
-          duration: 0.5,
-          ease: "power3.out",
-        });
-      }
-    };
-
-    // Base cursor style
-    const onLeave = () => {
-      gsap.to(cursorRef.current, {
+      gsap.to(cursorImage, {
+        opacity: 1,
+        rotate: 0,
         scale: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        width: 20,
-        height: 20,
-        borderRadius: 50,
-        left: 0,
-        top: 0,
-        duration: 0.5,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    };
+
+    const onLeave = () => {
+      gsap.to(cursor, {
+        scale: 1,
+        duration: 0.3,
         ease: "power3.out",
       });
 
-      if (cursorImage) {
-        gsap.to(cursorImage, {
-          opacity: 0,
-          rotate: 90,
-          duration: 0.5,
-          ease: "power3.out",
-        });
-      }
+      gsap.to(cursorImage, {
+        opacity: 0,
+        rotate: 90,
+        scale: 0.5,
+        duration: 0.3,
+        ease: "power3.out",
+      });
     };
 
-    Hoverable.forEach((el) => {
+    targets.forEach((el) => {
       el.addEventListener("mouseenter", onEnter);
       el.addEventListener("mouseleave", onLeave);
     });
 
     return () => {
-      Hoverable.forEach((el) => {
+      targets.forEach((el) => {
         el.removeEventListener("mouseenter", onEnter);
         el.removeEventListener("mouseleave", onLeave);
       });
@@ -146,16 +89,15 @@ export default function Cursor() {
   return (
     <div
       ref={cursorRef}
-      className="cursor md:flex hidden justify-center p-1.5 items-center mix-blend-difference fixed w-5 h-5 bg-white pointer-events-none z-50 top-0 left-0"
+      className="md:flex hidden justify-center items-center mix-blend-difference fixed w-5 h-5 bg-white rounded-full pointer-events-none z-90 top-0 left-0"
     >
       <Image
         src="/arrow.webp"
         alt="Cursor Arrow"
         width={8}
         height={8}
-        className="w-2 invert rotate-90 opacity-0"
+        className="w-2 opacity-0 invert"
         priority
-        fetchPriority="high"
       />
     </div>
   );
