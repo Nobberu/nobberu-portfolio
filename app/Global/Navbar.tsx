@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="fixed w-screen z-60 flex items-center justify-between px-6 pt-12 md:pt-20 md:px-45 text-lg font-light overflow-x-hidden">
+      <nav className="absolute top-0 h-[20dvh] w-screen z-60 flex items-center justify-between px-30 text-lg font-light">
         <Link
           href="/"
           className="brand relative flex items-center space-x-10 font-light transition-all duration-600 hover:font-extrabold z-70"

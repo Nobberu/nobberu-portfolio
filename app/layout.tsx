@@ -1,14 +1,14 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Zalando_Sans_SemiExpanded } from "next/font/google";
+import { Manrope } from "next/font/google";
 import Navbar from "./Global/Navbar";
 import Cursor from "./Global/Cursor";
 
-const zalandoSans = Zalando_Sans_SemiExpanded({
+const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
-  style: ["normal", "italic"],
-  variable: "--font-zalando",
+  style: ["normal"],
+  variable: "--font-manrope",
   adjustFontFallback: false,
 });
 
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${zalandoSans.variable} antialiased`}>
+    <html lang="en" className={`${manrope.variable} antialiased`}>
       <body className="overflow-x-hidden">
         <Cursor />
         <Navbar />
