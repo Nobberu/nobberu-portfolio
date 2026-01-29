@@ -1,34 +1,30 @@
 "use client";
 
+import Image from "next/image";
 import { navLink } from "../const";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-  const pathname = usePathname();
-
-  const isFullMode = pathname.startsWith("/full");
-  const basePath = isFullMode ? "/full" : "";
-
   return (
     <header>
-      <nav className="absolute top-0 h-[20dvh] w-screen z-60 flex items-center justify-between px-30 text-lg font-light">
-        <Link
-          href="/"
-          className="brand relative flex items-center space-x-10 font-light transition-all duration-600 hover:font-extrabold z-70"
-        >
-          <h2 className="left-9 cursor-pointer">nobberu.</h2>
+      <nav className="absolute top-0 w-screen z-60 flex items-center justify-between p-15 text-3xl">
+        <Link href="/" className="brand relative flex items-center">
+          <Image src="/logo.webp" alt="Nobberu Logo" width={40} height={40} />
         </Link>
 
-        <ul className="hidden flex-row space-x-10 md:flex">
+        <ul className="flex flex-row space-x-10 text-xl">
           {navLink.map((link) => (
             <li key={link.label}>
-              <Link href={`${basePath}${link.href}`} className="hover:">
-                {link.label}
-              </Link>
+              <Link href={`${link.href}`}>{link.label}</Link>
             </li>
           ))}
         </ul>
+
+        <Link href="/" className="brand relative flex items-center">
+          <h2 className="cursor-pointer">
+            <i>co</i>ntact
+          </h2>
+        </Link>
       </nav>
     </header>
   );

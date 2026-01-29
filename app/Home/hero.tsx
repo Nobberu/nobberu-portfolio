@@ -1,68 +1,51 @@
-import Panel from "./Components/panel";
+"use client";
 
-export default function Hero() {
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const Hero = () => {
+  useGSAP(() => {
+    gsap.set(".box", {
+      opacity: 1,
+      delay: 1,
+    });
+    gsap.to(".box", {
+      width: "100%",
+      ease: "expo.out",
+      duration: 2.15,
+      delay: 1.05,
+    });
+  }, []);
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center">
-      <div className="text-8xl flex flex-col items-center justify-center font-bold">
-        <h1 className="mr-37">CRAFTING</h1>
-        <h1 className="ml-25">
-          <span className="text-main-red">— LOGIC</span> &
-        </h1>
-        <h1 className="mr-35">TUNING</h1>
-        <h1 className="text-main-purple">AESTHETICS.</h1>
+    <div
+      id="hero"
+      className="h-screen w-screen flex relative flex-col justify-center items-center p-15"
+    >
+      <div className="box h-3/4 w-3/5 opacity-0 bg-dark mt-25"></div>
+      <div className="h-1/4 w-full flex flex-col justify-end items-center font-bold tracking-[-2%]">
+        <div className="w-full flex justify-between items-center text-xl">
+          <p>{"<Based in Indonesia />"}</p>
+          <p>{"I'm Nobbel"}</p>
+          <p>{"// UI/UX Designer & Developer"}</p>
+        </div>
+        <div className="flex justify-center items-center uppercase text-[111px] leading-0">
+          Visual Tinkerer
+          <Image
+            src="/Star.webp"
+            alt="Star"
+            width={92}
+            height={92}
+            className="mx-8.5"
+          />
+          Engineer
+        </div>
       </div>
-      <Panel
-        className="left-1/16 top-1/4 -rotate-4 scale-110"
-        messages={[
-          {
-            id: 1,
-            sender: "them",
-
-            content: (
-              <>
-                Hey! Is it true that you{"'"}re{" "}
-                <span className="font-bold text-main-red">Nobbel</span>?
-              </>
-            ),
-          },
-          {
-            id: 2,
-            sender: "me",
-            content: (
-              <>
-                Yes, I am <b>Nobbel</b>. What is it about?
-              </>
-            ),
-          },
-        ]}
-      />
-      <Panel
-        className="top-1/2 right-1/14 rotate-2 scale-90"
-        messages={[
-          {
-            id: 1,
-            sender: "me",
-            content: (
-              <>
-                We will work on this <b>as soon as possible</b>.
-              </>
-            ),
-          },
-          {
-            id: 2,
-            sender: "them",
-            content: (
-              <>
-                I{"'"}m so excited to{" "}
-                <span className="font-bold text-main-purple">
-                  work with you
-                </span>
-                .
-              </>
-            ),
-          },
-        ]}
-      />
     </div>
   );
-}
+};
+
+export default Hero;

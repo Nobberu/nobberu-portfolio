@@ -1,10 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-    --color-main-red: #cd2b4a;
-    --color-main-purple: #5849be;
-    --color-bg: #0a0908;
-    --color-text: #e8e1cd;
+    --color-light: oklch(0.97 0.003 106);
+    --color-dark: oklch(0.12 0.003 106);
+    --color-acc-dark: oklch(0.14 0.02 15);
+
+    --color-monza-50: oklch(0.963 0.014 15);
+    --color-monza-100: oklch(0.929 0.028 15);
+    --color-monza-200: oklch(0.875 0.056 15);
+    --color-monza-300: oklch(0.791 0.109 15);
+    --color-monza-400: oklch(0.704 0.174 15);
+    --color-monza-500: oklch(0.626 0.208 15);
+    --color-monza-600: oklch(0.556 0.222 15);
+    --color-monza-700: oklch(0.485 0.202 15);
+    --color-monza-800: oklch(0.407 0.163 15);
+    --color-monza-900: oklch(0.358 0.134 15);
+    --color-monza-950: oklch(0.237 0.088 15);
 }
 
 ::-webkit-scrollbar {
@@ -16,8 +27,36 @@
 }
 
 body {
-    font-family: var(--font-manrope), sans-serif;
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    overflow-x: hidden;
+    font-family: var(--font-main), sans-serif;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+html {
+    scroll-behavior: auto !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
 }

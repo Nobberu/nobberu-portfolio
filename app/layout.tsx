@@ -1,21 +1,20 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import Navbar from "./Global/Navbar";
-import Cursor from "./Global/Cursor";
 
-const manrope = Manrope({
+import Lenis from "./Global/Lenis";
+import Cursor from "./Global/Cursor";
+import Navbar from "./Global/Navbar";
+
+const mainFont = Manrope({
   subsets: ["latin"],
+  variable: "--font-main",
   display: "swap",
-  style: ["normal"],
-  variable: "--font-manrope",
-  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
   title: "nobbel.",
-  description:
-    "This is the portfolio page of Nobbel Kaisar Bhumi (also known as nobberu) as a digital creator.",
+  description: "Portfolio of Nobbel Kaisar Bhumi.",
 };
 
 export default function RootLayout({
@@ -24,8 +23,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} antialiased`}>
+    <html lang="en" className={`${mainFont.variable} antialiased`}>
       <body className="overflow-x-hidden">
+        <Lenis />
         <Cursor />
         <Navbar />
         {children}

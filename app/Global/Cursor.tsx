@@ -1,97 +1,92 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import Image from "next/image";
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
+  const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-    if (!cursor) return;
+    const ctx = gsap.context(() => {
+      const cursor = cursorRef.current;
+      const cursorImage = imageRef.current;
+      if (!cursor || !cursorImage) return;
 
-    const xTo = gsap.quickTo(cursor, "x", {
-      duration: 0.3,
-      ease: "power2.out",
+      gsap.set(cursor, { xPercent: -50, yPercent: -50 });
+
+      const xTo = gsap.quickTo(cursor, "x", {
+        duration: 0.5,
+        ease: "power3.out",
+      });
+      const yTo = gsap.quickTo(cursor, "y", {
+        duration: 0.5,
+        ease: "power3.out",
+      });
+
+      const handleMouseMove = (e: MouseEvent) => {
+        xTo(e.clientX);
+        yTo(e.clientY);
+      };
+
+      const handleMouseOver = (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+
+        const isInteractive = target.closest('a, button, [class*="hover:"]');
+
+        if (isInteractive) {
+          // ON ENTER
+          gsap.to(cursor, {
+            scale: 4,
+            duration: 0.3,
+            ease: "power3.out",
+            overwrite: "auto",
+          });
+          gsap.to(cursorImage, {
+            opacity: 1,
+            rotate: 0,
+            scale: 1,
+            duration: 0.3,
+            ease: "power3.out",
+          });
+        } else {
+          // ON LEAVE
+          gsap.to(cursor, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power3.out",
+            overwrite: "auto",
+          });
+          gsap.to(cursorImage, {
+            opacity: 0,
+            rotate: 90,
+            scale: 0.5,
+            duration: 0.3,
+            ease: "power3.out",
+          });
+        }
+      };
+
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseover", handleMouseOver);
+
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+        window.removeEventListener("mouseover", handleMouseOver);
+      };
     });
-    const yTo = gsap.quickTo(cursor, "y", {
-      duration: 0.3,
-      ease: "power2.out",
-    });
 
-    gsap.set(cursor, { xPercent: -50, yPercent: -50 });
-
-    const handleMouseMove = (e: MouseEvent) => {
-      xTo(e.clientX);
-      yTo(e.clientY);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => ctx.revert();
   }, []);
-
-  useEffect(() => {
-    const cursor = cursorRef.current;
-    const cursorImage = cursor?.querySelector("img");
-
-    if (!cursor || !cursorImage) return;
-
-    const targets = document.querySelectorAll('[class*="hover:"]');
-
-    const onEnter = () => {
-      gsap.to(cursor, {
-        scale: 4,
-        duration: 0.3,
-        ease: "power3.out",
-      });
-
-      gsap.to(cursorImage, {
-        opacity: 1,
-        rotate: 0,
-        scale: 1,
-        duration: 0.3,
-        ease: "power3.out",
-      });
-    };
-
-    const onLeave = () => {
-      gsap.to(cursor, {
-        scale: 1,
-        duration: 0.3,
-        ease: "power3.out",
-      });
-
-      gsap.to(cursorImage, {
-        opacity: 0,
-        rotate: 90,
-        scale: 0.5,
-        duration: 0.3,
-        ease: "power3.out",
-      });
-    };
-
-    targets.forEach((el) => {
-      el.addEventListener("mouseenter", onEnter);
-      el.addEventListener("mouseleave", onLeave);
-    });
-
-    return () => {
-      targets.forEach((el) => {
-        el.removeEventListener("mouseenter", onEnter);
-        el.removeEventListener("mouseleave", onLeave);
-      });
-    };
-  }, [pathname]);
 
   return (
     <div
       ref={cursorRef}
-      className="md:flex hidden justify-center items-center mix-blend-difference fixed w-5 h-5 bg-white rounded-full pointer-events-none z-90 top-0 left-0"
+      className="md:flex hidden justify-center mix-blend-difference items-center fixed w-4 h-4 bg-light border-text pointer-events-none z-61 top-0 left-0"
     >
       <Image
+        ref={imageRef}
         src="/arrow.webp"
         alt="Cursor Arrow"
         width={8}
