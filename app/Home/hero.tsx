@@ -75,7 +75,7 @@ const Hero = () => {
           </h1>
 
           <div className="md:hidden w-full flex mt-2 md:mt-0">
-            <div className="star invisible opacity-0 translate-y-12.5 relative flex flex-col text-xs md:text-lg justify-center items-center lowercase rotate-60 mr-3 md:mr-0">
+            <div className="star invisible opacity-0 translate-y-7 md:translate-y-12.5 relative flex flex-col text-xs md:text-lg justify-center items-center lowercase rotate-60 mr-3 md:mr-0">
               <Image
                 src="/star.webp"
                 alt="star"
