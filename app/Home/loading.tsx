@@ -178,7 +178,7 @@ const Loading = () => {
                 alt={icon.alt}
                 width={200}
                 height={200}
-                className="size-7.gi5 md:size-11.25"
+                className="size-7.5 md:size-11.25"
               />
             </div>
           ))}
