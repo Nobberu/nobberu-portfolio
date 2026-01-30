@@ -77,8 +77,8 @@ const Hero = () => {
           <div className="md:hidden w-full flex mt-2 md:mt-0">
             <div className="star invisible opacity-0 translate-y-12.5 relative flex flex-col text-xs md:text-lg justify-center items-center lowercase rotate-60 mr-3 md:mr-0">
               <Image
-                src="/Star.webp"
-                alt="Star"
+                src="/star.webp"
+                alt="star"
                 width={92}
                 height={92}
                 className="size-9 md:size-23"
@@ -96,7 +96,7 @@ const Hero = () => {
           <div className="hidden star invisible opacity-0 translate-y-12.5 relative md:flex flex-col text-xs md:text-lg justify-center items-center lowercase rotate-60 mr-3 md:mr-0">
             <Image
               src="/star.webp"
-              alt="Star"
+              alt="star"
               width={92}
               height={92}
               className="size-9 md:size-23"
