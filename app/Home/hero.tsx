@@ -95,7 +95,7 @@ const Hero = () => {
 
           <div className="hidden star invisible opacity-0 translate-y-12.5 relative md:flex flex-col text-xs md:text-lg justify-center items-center lowercase rotate-60 mr-3 md:mr-0">
             <Image
-              src="/Star.webp"
+              src="/star.webp"
               alt="Star"
               width={92}
               height={92}
