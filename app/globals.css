@@ -23,7 +23,7 @@
 }
 
 ::selection {
-    background-color: var(--color-main-red);
+    background-color: var(--color-monza-600);
 }
 
 body {
@@ -59,4 +59,8 @@ html.lenis body {
 
 .lenis.lenis-scrolling iframe {
     pointer-events: none;
+}
+
+.hero {
+    font-size: clamp(42px, 0.0924rem + 6.25vw, 11rem);
 }

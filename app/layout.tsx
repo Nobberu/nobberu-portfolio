@@ -15,6 +15,7 @@ const mainFont = Manrope({
 export const metadata: Metadata = {
   title: "nobbel.",
   description: "Portfolio of Nobbel Kaisar Bhumi.",
+
 };
 
 export default function RootLayout({
