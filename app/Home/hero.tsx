@@ -60,7 +60,7 @@ const Hero = () => {
   return (
     <div
       ref={container}
-      className="h-dvh w-screen flex relative flex-col justify-center items-center p-5 md:p-15"
+      className="h-svh w-screen flex relative flex-col justify-center items-center p-5 md:p-15"
     >
       <div className="h-fit w-full flex flex-col justify-center items-center font-bold tracking-[-2%]">
         <div className="intro-text w-full flex justify-between items-center text-[10.5px] md:text-2xl overflow-hidden leading-normal">
