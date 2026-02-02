@@ -6,11 +6,6 @@ import Lenis from "./Global/Lenis";
 import Cursor from "./Global/Cursor";
 import Navbar from "./Global/Navbar";
 
-<meta
-  name="google-site-verification"
-  content="rWJtgeDSA6fCfLUSEzF78Ts-Y8fuMobQ7GKpEGcbwcU"
-/>;
-
 const mainFont = Manrope({
   subsets: ["latin"],
   variable: "--font-main",
@@ -35,6 +30,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Nobbel" }],
   creator: "Nobbel",
+  verification: {
+    google: "rWJtgeDSA6fCfLUSEzF78Ts-Y8fuMobQ7GKpEGcbwcU",
+  },
   alternates: {
     canonical: "/",
   },
