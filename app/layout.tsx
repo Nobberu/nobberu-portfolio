@@ -6,6 +6,11 @@ import Lenis from "./Global/Lenis";
 import Cursor from "./Global/Cursor";
 import Navbar from "./Global/Navbar";
 
+<meta
+  name="google-site-verification"
+  content="rWJtgeDSA6fCfLUSEzF78Ts-Y8fuMobQ7GKpEGcbwcU"
+/>;
+
 const mainFont = Manrope({
   subsets: ["latin"],
   variable: "--font-main",
@@ -20,7 +25,14 @@ export const metadata: Metadata = {
   },
   description:
     "Crafting motion-driven web applications with various modern tools (GSAP, Next.js, Astro). Specialized in high-performance digital experiences.",
-  keywords: ["Nobbel", "Nobberu", "Creative Developer", "Frontend Engineer", "Next.js", "GSAP"],
+  keywords: [
+    "Nobbel",
+    "Nobberu",
+    "Creative Developer",
+    "Frontend Engineer",
+    "Next.js",
+    "GSAP",
+  ],
   authors: [{ name: "Nobbel" }],
   creator: "Nobbel",
   alternates: {
@@ -37,7 +49,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Nobbel | Creative Developer",
-    description: "Crafting motion-driven web applications with Next.js and GSAP.",
+    description:
+      "Crafting motion-driven web applications with Next.js and GSAP.",
   },
   robots: {
     index: true,
