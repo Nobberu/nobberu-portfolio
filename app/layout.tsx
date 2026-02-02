@@ -13,9 +13,14 @@ const mainFont = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "nobbel.",
-  description: "Portfolio of Nobbel Kaisar Bhumi.",
-
+  title: "Nobbel | Creative Developer",
+  description:
+    "Crafting motion-driven web applications with various modern tools. (GSAP, Next, Atro).",
+  openGraph: {
+    title: "Nobbel | Creative Developer",
+    description: "Bridging the gap between engineering and fluid design.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
