@@ -15,7 +15,7 @@ const mainFont = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nobberu.vercel.app"),
   title: {
-    default: "Nobbel | Creative Developer",
+    default: "Nobbel | Creative Developer. Design is the why, Code is the how.",
     template: "%s | Nobbel",
   },
   description:
