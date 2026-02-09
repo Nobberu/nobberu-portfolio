@@ -33,7 +33,7 @@ export default function Cursor() {
       const handleMouseOver = (e: MouseEvent) => {
         const target = e.target as HTMLElement;
 
-        const isInteractive = target.closest('a, button, [class*="hover:"]');
+        const isInteractive = target.closest('button, [class*="hover:"]');
 
         if (isInteractive) {
           // ON ENTER

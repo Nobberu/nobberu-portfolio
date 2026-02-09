@@ -15,7 +15,7 @@ const mainFont = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nobberu.vercel.app"),
   title: {
-    default: "Nobbel | Creative Developer. Design is the why, Code is the how.",
+    default: "Nobbel - Creative Developer & Interaction Designer",
     template: "%s | Nobbel",
   },
   description:
@@ -24,7 +24,10 @@ export const metadata: Metadata = {
     "Nobbel",
     "Nobberu",
     "Creative Developer",
-    "Frontend Engineer",
+    "Frontend",
+    "Frontend Developer",
+    "React",
+    "Next",
     "Next.js",
     "GSAP",
   ],
@@ -37,7 +40,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Nobbel | Creative Developer",
+    title: "Nobbel - Creative Developer & Interaction Designer",
     description: "Bridging the gap between engineering and fluid design.",
     url: "https://nobberu.vercel.app",
     siteName: "Nobbel Portfolio",
@@ -46,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nobbel | Creative Developer",
+    title: "Nobbel - Creative Developer & Interaction Designer",
     description:
       "Crafting motion-driven web applications with Next.js and GSAP.",
   },

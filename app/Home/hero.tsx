@@ -1,17 +1,35 @@
 "use client";
 
 import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
-import Image from "next/image";
 import { useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+gsap.registerPlugin(SplitText);
 
 const Hero = () => {
-  const container = useRef(null);
+  const hero = useRef(null);
 
   useGSAP(
     () => {
+      const HeroSplit = new SplitText(".split-item", {
+        type: "chars",
+        charsClass: "hero-char",
+      });
+
+      const ButtonSplit = new SplitText(".split-button", {
+        type: "chars",
+        charsClass: "button-char",
+      });
+
+      const contact = hero.current.querySelector(".contact");
+
+      gsap.set(".hero-char", { yPercent: 100 });
+
       gsap.to(".hero-char", {
-        y: 0,
+        yPercent: 0,
         duration: 0.75,
         ease: "power3.out",
         stagger: 0.05,
@@ -27,6 +45,22 @@ const Hero = () => {
         delay: 8.1,
       });
 
+      gsap.to(".star", {
+        rotate: -360,
+        duration: 8,
+        repeat: -1,
+        delay: 9.65,
+        ease: "none",
+      });
+
+      gsap.to(".and", {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.75,
+        ease: "power3.out",
+        delay: 8.3,
+      });
+
       gsap.to(".intro-text p", {
         y: 0,
         duration: 1,
@@ -35,31 +69,58 @@ const Hero = () => {
         delay: 8.8,
       });
 
-      gsap.to(".star p", {
+      gsap.to(".contact", {
         y: 0,
         autoAlpha: 1,
-        duration: 0.75,
+        duration: 1,
         ease: "power3.out",
-        delay: 9.1,
+        delay: 10,
       });
-    },
-    { scope: container },
-  );
 
-  const splitText = (text: string) => {
-    return text.split("").map((char, index) => (
-      <span
-        key={index}
-        className="hero-char inline-block translate-y-full will-change-transform"
-      >
-        {char === " " ? "\u00A0" : char}
-      </span>
-    ));
-  };
+      gsap.to(".aura", {
+        scale: 2.35,
+        opacity: 0,
+        duration: 1.75,
+        repeat: -1,
+        ease: "sine.out",
+        delay: 11,
+        rotation: 0.01,
+      });
+
+      contact.addEventListener("mouseenter", () => {
+        gsap.to(".button-char", {
+          y: "-100%",
+          stagger: {
+            amount: 0.3,
+            grid: "auto",
+          },
+          duration: 0.5,
+          ease: "power3.inOut",
+        });
+      });
+      contact.addEventListener("mouseout", () => {
+        gsap.to(".button-char", {
+          y: 0,
+          stagger: {
+            amount: 0.3,
+            grid: "auto",
+          },
+          duration: 0.5,
+          ease: "power3.inOut",
+        });
+      });
+
+      return () => {
+        HeroSplit.revert();
+        ButtonSplit.revert();
+      };
+    },
+    { scope: hero },
+  );
 
   return (
     <div
-      ref={container}
+      ref={hero}
       className="h-svh w-screen flex relative flex-col justify-center items-center p-5 md:p-15"
     >
       <div className="h-fit w-full flex flex-col justify-center items-center font-bold tracking-[-2%]">
@@ -70,46 +131,60 @@ const Hero = () => {
         </div>
 
         <div className="hero w-full flex flex-col md:flex-row justify-between items-start md:items-center uppercase">
-          <h1 className="overflow-hidden leading-none">
-            {splitText("Visual Tinkerer")}
+          <h1 className="split-item overflow-hidden leading-none">
+            Visual Tinkerer
           </h1>
 
-          <div className="md:hidden w-full flex mt-2 md:mt-0">
-            <div className="star invisible opacity-0 translate-y-7 md:translate-y-12.5 relative flex flex-col text-xs md:text-lg justify-center items-center lowercase rotate-60 mr-3 md:mr-0">
+          <div className="md:hidden w-full flex mt-2">
+            <div className="relative flex flex-col text-xs justify-center items-center lowercase mr-3">
               <Image
                 src="/star.webp"
                 alt="star"
                 width={92}
                 height={92}
-                className="size-9 md:size-23"
+                className="star invisible opacity-0 rotate-60 translate-y-7 size-9"
               />
-              <p className="absolute -bottom-3.5 md:-bottom-6.5 translate-y-2.5 opacity-0">
+              <p className="and absolute -bottom-3.5 translate-y-2.5 opacity-0">
                 and
               </p>
             </div>
 
-            <h1 className="overflow-hidden leading-none">
-              {splitText("Engineer")}
+            <h1 className="split-item overflow-hidden leading-none">
+              Engineer
             </h1>
           </div>
 
-          <div className="hidden star invisible opacity-0 translate-y-12.5 relative md:flex flex-col text-xs md:text-lg justify-center items-center lowercase rotate-60 mr-3 md:mr-0">
+          <div className="hidden relative md:flex flex-col text-lg justify-center items-center lowercase mr-0">
             <Image
               src="/star.webp"
               alt="star"
               width={92}
               height={92}
-              className="size-9 md:size-23"
+              className="star invisible opacity-0 rotate-60 translate-y-12.5 size-23"
             />
-            <p className="absolute -bottom-3.5 md:-bottom-6.5 translate-y-2.5 opacity-0">
+            <p className="and absolute -bottom-6.5 translate-y-2.5 opacity-0">
               and
             </p>
           </div>
 
-          <h1 className="invisible md:visible overflow-hidden leading-none">
-            {splitText("Engineer")}
+          <h1 className="split-item invisible md:visible overflow-hidden leading-none">
+            Engineer
           </h1>
         </div>
+      </div>
+
+      <div>
+        <Link
+          href=""
+          className="contact relative translate-y-12 opacity-0 invisible flex justify-center items-center bg-acc-dark pl-7 pr-8 py-6 text-light rounded-full mt-15"
+        >
+          <div className="size-3.5 bg-green-500 rounded-full mr-4 pointer-events-none" />
+          <div className="absolute aura left-7 size-3.5 bg-green-500 rounded-full mr-4 pointer-events-none" />
+          <div className="leading-none h-4 pointer-events-none overflow-hidden flex flex-col font-bold">
+            <div className="split-button">Contact Me</div>
+            <div className="split-button">Contact Me</div>
+          </div>
+        </Link>
       </div>
     </div>
   );
