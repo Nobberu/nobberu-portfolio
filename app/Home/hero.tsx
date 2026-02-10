@@ -1,16 +1,34 @@
 "use client";
 
 import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
+
 import { useRef } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
+
+import RollingText, { RollingTextHandle } from "../Components/rolling-text";
 
 gsap.registerPlugin(SplitText);
 
 const Hero = () => {
   const hero = useRef(null);
+
+  const rollingTextRef = useRef<RollingTextHandle>(null);
+
+  const hover = () => {
+    if (rollingTextRef.current) {
+      rollingTextRef.current.exportHover();
+    }
+  };
+
+  const exit = () => {
+    if (rollingTextRef.current) {
+      rollingTextRef.current.exportExit();
+    }
+  };
 
   useGSAP(
     () => {
@@ -18,13 +36,6 @@ const Hero = () => {
         type: "chars",
         charsClass: "hero-char",
       });
-
-      const ButtonSplit = new SplitText(".split-button", {
-        type: "chars",
-        charsClass: "button-char",
-      });
-
-      const contact = hero.current.querySelector(".contact");
 
       gsap.set(".hero-char", { yPercent: 100 });
 
@@ -69,7 +80,7 @@ const Hero = () => {
         delay: 8.8,
       });
 
-      gsap.to(".contact", {
+      gsap.to(".roll", {
         y: 0,
         autoAlpha: 1,
         duration: 1,
@@ -87,32 +98,8 @@ const Hero = () => {
         rotation: 0.01,
       });
 
-      contact.addEventListener("mouseenter", () => {
-        gsap.to(".button-char", {
-          y: "-100%",
-          stagger: {
-            amount: 0.3,
-            grid: "auto",
-          },
-          duration: 0.5,
-          ease: "power3.inOut",
-        });
-      });
-      contact.addEventListener("mouseout", () => {
-        gsap.to(".button-char", {
-          y: 0,
-          stagger: {
-            amount: 0.3,
-            grid: "auto",
-          },
-          duration: 0.5,
-          ease: "power3.inOut",
-        });
-      });
-
       return () => {
         HeroSplit.revert();
-        ButtonSplit.revert();
       };
     },
     { scope: hero },
@@ -176,14 +163,17 @@ const Hero = () => {
       <div>
         <Link
           href=""
-          className="contact relative translate-y-12 opacity-0 invisible flex justify-center items-center bg-acc-dark pl-7 pr-8 py-6 text-light rounded-full mt-15"
+          onMouseEnter={hover}
+          onMouseLeave={exit}
+          className="roll relative translate-y-12 opacity-0 invisible flex justify-center items-center bg-acc-dark pl-7 pr-8 py-6 text-light rounded-full mt-15"
         >
           <div className="size-3.5 bg-green-500 rounded-full mr-4 pointer-events-none" />
           <div className="absolute aura left-7 size-3.5 bg-green-500 rounded-full mr-4 pointer-events-none" />
-          <div className="leading-none h-4 pointer-events-none overflow-hidden flex flex-col font-bold">
-            <div className="split-button">Contact Me</div>
-            <div className="split-button">Contact Me</div>
-          </div>
+          <RollingText
+            ref={rollingTextRef}
+            size="16px"
+            customClass="font-bold"
+          />
         </Link>
       </div>
     </div>
