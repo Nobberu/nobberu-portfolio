@@ -74,10 +74,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${mainFont.variable} antialiased`}>
       <body className="overflow-x-hidden">
-        <Lenis />
-        <Cursor />
-        <Navbar />
-        {children}
+        <Lenis>
+          <Cursor />
+          <Navbar />
+          {children}
+        </Lenis>
       </body>
     </html>
   );

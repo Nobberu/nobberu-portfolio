@@ -2,9 +2,11 @@
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import Image from "next/image";
 
+import { useRef, useEffect } from "react";
+import { useLenis } from "../global/lenis";
+
+import Image from "next/image";
 import WLogo from "@/assets/icons/w-logo.webp";
 import WStar from "@/assets/icons/w-star.webp";
 import Arrow from "@/assets/icons/arrow.webp";
@@ -30,6 +32,22 @@ const Loading = () => {
   const ONE_SET_WIDTH = icons.length * STEP_SIZE;
   const CENTER_STAR_INDEX = 4;
 
+  const lenis = useLenis();
+  const lenisRef = useRef(lenis);
+
+  useEffect(() => {
+    lenisRef.current = lenis;
+  }, [lenis]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    if (lenis) {
+      lenis.stop();
+      lenis.scrollTo(0, { immediate: true });
+    }
+  }, [lenis]);
+
   useGSAP(
     () => {
       if (!containerRef.current || !windowRef.current) return;
@@ -39,9 +57,7 @@ const Loading = () => {
       const starElement = childNodes[CENTER_STAR_INDEX];
 
       gsap.set(containerRef.current, { x: startX });
-
       gsap.set(childNodes, { scale: 0.6 });
-
       gsap.set(starElement, { scale: 1 });
 
       timelineRef.current = gsap.timeline({
@@ -49,7 +65,14 @@ const Loading = () => {
         defaults: { ease: "power2.inOut", duration: 0.6 },
         onRepeat: () => {
           if (stopSignal.current && timelineRef.current) {
-            timelineRef.current.pause();
+            timelineRef.current.kill();
+            timelineRef.current = null;
+
+            gsap.killTweensOf(containerRef.current);
+
+            gsap.set(containerRef.current, { x: startX });
+            gsap.set(childNodes, { scale: 0.6 });
+            gsap.set(starElement, { scale: 1 });
 
             gsap.set(windowRef.current, { overflow: "visible", delay: 0.86 });
 
@@ -82,6 +105,11 @@ const Loading = () => {
               gsap.to(wholeRef.current, {
                 display: "none",
                 delay: 2.5,
+                onComplete: () => {
+                  if (lenisRef.current) {
+                    lenisRef.current.start();
+                  }
+                },
               });
             }
 
@@ -94,10 +122,8 @@ const Loading = () => {
 
       icons.forEach((_, index) => {
         const nextX = startX - STEP_SIZE * (index + 1);
-
         const currentCenterIdx = CENTER_STAR_INDEX + index;
         const nextCenterIdx = CENTER_STAR_INDEX + index + 1;
-
         const currentEl = childNodes[currentCenterIdx];
         const nextEl = childNodes[nextCenterIdx];
 
@@ -106,24 +132,11 @@ const Loading = () => {
           delay: 0.6,
         });
 
-        timelineRef.current?.to(
-          currentEl,
-          {
-            scale: 0.6,
-          },
-          "<",
-        );
-        timelineRef.current?.to(
-          nextEl,
-          {
-            scale: 1,
-          },
-          "<",
-        );
+        timelineRef.current?.to(currentEl, { scale: 0.6 }, "<");
+        timelineRef.current?.to(nextEl, { scale: 1 }, "<");
       });
 
       timelineRef.current?.set(containerRef.current, { x: startX });
-
       timelineRef.current?.set(childNodes, { scale: 0.6 });
       timelineRef.current?.set(childNodes[CENTER_STAR_INDEX], { scale: 1 });
 
