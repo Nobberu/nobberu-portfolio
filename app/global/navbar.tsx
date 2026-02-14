@@ -21,7 +21,7 @@ const Navbar = () => {
       <nav className="absolute w-screen z-1 flex items-center justify-between px-5 py-10 md:p-15 text-3xl">
         <Link href="/" className="relative flex items-center overflow-hidden">
           <Image
-            src={logo}
+            src={Logo}
             alt="Nobberu Logo"
             width={40}
             height={40}
