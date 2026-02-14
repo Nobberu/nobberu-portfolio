@@ -2,9 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
-import Lenis from "./Global/Lenis";
-import Cursor from "./Global/Cursor";
-import Navbar from "./Global/Navbar";
+import Lenis from "./global/lenis";
+import Cursor from "./global/cursor";
+import Navbar from "./global/navbar";
 
 const mainFont = Manrope({
   subsets: ["latin"],

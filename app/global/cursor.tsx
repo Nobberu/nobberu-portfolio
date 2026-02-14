@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 
+import Arrow from "@/assets/icons/arrow.webp";
+
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
@@ -87,7 +89,7 @@ export default function Cursor() {
     >
       <Image
         ref={imageRef}
-        src="/arrow.webp"
+        src={Arrow}
         alt="Cursor Arrow"
         width={8}
         height={8}

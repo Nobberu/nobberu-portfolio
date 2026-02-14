@@ -1,14 +1,14 @@
-import Loading from "./Home/loading";
-import Hero from "./Home/hero";
-import About from "./Home/about";
-import Cta from "./Home/cta";
+import Loading from "./home/loading";
+import Hero from "./home/hero";
+import Projects from "./home/projects";
+import Cta from "./home/cta";
 
 export default function Home() {
   return (
     <main className="flex flex-col">
       <Loading />
       <Hero />
-      <About />
+      <Projects />
       <Cta />
       <div className="h-screen w-screen" />
     </main>
