@@ -113,13 +113,16 @@ const Hero = () => {
       <div className="h-fit w-full flex flex-col justify-center items-center font-bold tracking-[-2%]">
         <div className="intro-text w-full flex justify-between items-center text-[10.5px] md:text-2xl overflow-hidden leading-normal">
           <p className="translate-y-full">{"<Based in Indonesia />"}</p>
-          <p className="translate-y-full">{"I'm Nobbel"}</p>
+          <p className="translate-y-full">
+            {"I'm"}
+            <span className="font-sub italic">{" Nobbel"}</span>
+          </p>
           <p className="translate-y-full">{"// UI/UX Designer & Developer"}</p>
         </div>
 
         <div className="hero w-full flex flex-col md:flex-row justify-between items-start md:items-center uppercase">
           <h1 className="split-item overflow-hidden leading-none">
-            Visual Tinkerer
+            Visual <span className="font-sub italic mr-0.5">Tinkerer</span>
           </h1>
 
           <div className="md:hidden w-full flex mt-2">
@@ -149,7 +152,7 @@ const Hero = () => {
               height={92}
               className="star invisible opacity-0 rotate-60 translate-y-12.5 size-23"
             />
-            <p className="and absolute -bottom-6.5 translate-y-2.5 opacity-0">
+            <p className="and absolute -bottom-7 translate-y-2.5 opacity-0">
               and
             </p>
           </div>

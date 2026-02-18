@@ -1,15 +1,23 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Manrope, Instrument_Serif } from "next/font/google";
 
-import Lenis from "./global/lenis";
 import Cursor from "./global/cursor";
 import Navbar from "./global/navbar";
+import ReactLenis from "lenis/react";
 
 const mainFont = Manrope({
   subsets: ["latin"],
   variable: "--font-main",
   display: "swap",
+});
+
+const subFont = Instrument_Serif({
+  subsets: ["latin"],
+  variable: "--font-sub",
+  display: "swap",
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -72,13 +80,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${mainFont.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${mainFont.variable} ${subFont.variable} antialiased`}
+    >
       <body className="overflow-x-hidden">
-        <Lenis>
+        <ReactLenis root>
           <Cursor />
           <Navbar />
           {children}
-        </Lenis>
+        </ReactLenis>
       </body>
     </html>
   );

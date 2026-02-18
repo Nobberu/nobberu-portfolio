@@ -26,6 +26,10 @@
     background-color: var(--color-monza-600);
 }
 
+@utility font-sub {
+    font-family: var(--font-sub);
+}
+
 body {
     font-family: var(--font-main), sans-serif;
     background-color: var(--color-light);
@@ -62,5 +66,5 @@ html.lenis body {
 }
 
 .hero {
-    font-size: clamp(42px, 0.0924rem + 6.25vw, 11rem);
+    font-size: clamp(42px, 0.0924rem + 6.75vw, 11rem);
 }

@@ -6,6 +6,7 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { useLenis } from "lenis/react";
 import RollingText, { RollingTextHandle } from "../components/rolling-text";
 import { navLink } from "../const";
 
@@ -23,7 +24,7 @@ const NavItem = ({ item }: { item: { href: string; label: string } }) => {
   };
 
   return (
-    <li className="list my-10 -translate-y-10 opacity-0">
+    <li className="list my-10 -translate-y-10 opacity-0 pointer-events-auto">
       <Link href={item.href} onMouseEnter={hover} onMouseLeave={exit}>
         <RollingText
           ref={itemRef}
@@ -40,15 +41,21 @@ const Navbar = () => {
   const containerRef = useRef<HTMLElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
+  const lenis = useLenis();
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      document.body.style.height = "100svh";
+      if (lenis) {
+        lenis.stop();
+      }
     } else {
       document.body.style.overflow = "";
-      document.body.style.height = "";
+      if (lenis) {
+        lenis.start();
+      }
     }
-  }, [isOpen]);
+  }, [isOpen, lenis]);
 
   const { contextSafe } = useGSAP(
     () => {
@@ -74,7 +81,7 @@ const Navbar = () => {
       gsap.to(".ham", { gap: "8px", duration: 0.3 });
 
       gsap.to(".line-1", { rotate: 0, y: 0, duration: 0.3 });
-      gsap.to(".line-2", { rotate: 0, y: 0, width: "66%", duration: 0.3 }); // Reset width to 2/3
+      gsap.to(".line-2", { rotate: 0, y: 0, width: "66%", duration: 0.3 });
 
       gsap.to(".menu", {
         y: "-100%",
@@ -128,9 +135,12 @@ const Navbar = () => {
     <header>
       <nav
         ref={containerRef}
-        className="absolute w-screen z-1 flex items-center justify-between px-5 py-10 md:p-15 text-3xl"
+        className="fixed w-screen z-1 flex items-center justify-between px-5 py-10 md:p-15 text-3xl pointer-events-none"
       >
-        <Link href="/" className="relative flex items-center overflow-hidden">
+        <Link
+          href="/"
+          className="relative flex items-center overflow-hidden pointer-events-auto"
+        >
           <Image
             src={Logo}
             alt="Nobberu Logo"
@@ -142,7 +152,7 @@ const Navbar = () => {
 
         <button
           onClick={toggleMenu}
-          className="ham size-10 relative z-50 flex flex-col items-end justify-center text-light text-sm gap-2 overflow-hidden"
+          className="ham size-10 relative z-50 flex flex-col items-end justify-center text-light text-sm gap-2 overflow-hidden pointer-events-auto"
         >
           <div className="line line-1 w-full h-0.75 translate-x-full bg-dark rounded-full origin-center" />
           <div className="line line-2 w-2/3 h-0.75 translate-x-full bg-dark rounded-full origin-center" />

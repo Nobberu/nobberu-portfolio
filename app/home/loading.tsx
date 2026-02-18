@@ -1,10 +1,10 @@
 "use client";
 
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
+import { useGSAP } from "@gsap/react";
 import { useRef, useEffect } from "react";
-import { useLenis } from "../global/lenis";
+import { useLenis } from "lenis/react";
 
 import Image from "next/image";
 import WLogo from "@/assets/icons/w-logo.webp";
@@ -41,11 +41,16 @@ const Loading = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.body.style.overflow = "hidden";
 
     if (lenis) {
       lenis.stop();
       lenis.scrollTo(0, { immediate: true });
     }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [lenis]);
 
   useGSAP(
@@ -106,6 +111,8 @@ const Loading = () => {
                 display: "none",
                 delay: 2.5,
                 onComplete: () => {
+                  document.body.style.overflow = "";
+
                   if (lenisRef.current) {
                     lenisRef.current.start();
                   }
@@ -156,13 +163,13 @@ const Loading = () => {
         },
       });
     },
-    { scope: containerRef },
+    { scope: containerRef, dependencies: [] },
   );
 
   return (
     <div
       ref={wholeRef}
-      className="h-dvh w-screen flex flex-col absolute justify-center items-center overflow-hidden bg-dark z-1"
+      className="h-dvh w-screen flex flex-col absolute justify-center items-center overflow-hidden bg-dark z-50 top-0 left-0"
     >
       <div className="absolute flex justify-center items-center pointer-events-none">
         <Image

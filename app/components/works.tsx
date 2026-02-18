@@ -3,20 +3,22 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
-import Image, { StaticImageData } from "next/image";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(SplitText);
-}
+import Image, { StaticImageData } from "next/image";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 interface WorksProps {
   number: number;
   src: StaticImageData;
   text: string;
+  title: string;
   description: string;
   customClass?: string;
   parallaxSpeed?: number;
+  scrollSpeed?: number;
   hoveredId: number | null;
   setHovered: (id: number | null) => void;
 }
@@ -25,9 +27,11 @@ const Works = ({
   number,
   src,
   text,
+  title,
   description,
   customClass = "",
   parallaxSpeed = 0.05,
+  scrollSpeed = 30,
   hoveredId,
   setHovered,
 }: WorksProps) => {
@@ -40,6 +44,17 @@ const Works = ({
 
   useGSAP(
     () => {
+      gsap.to(containerRef.current, {
+        yPercent: scrollSpeed,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 0,
+        },
+      });
+
       const split = new SplitText(".desc-text", { type: "lines" });
 
       split.lines.forEach((line) => {
@@ -113,6 +128,7 @@ const Works = ({
       gsap.to(containerRef.current, {
         duration: 0.5,
         scale: isBlurred ? 0.95 : 1,
+        opacity: isBlurred ? 0.4 : 1,
         filter: isBlurred
           ? "blur(8px) grayscale(50%)"
           : "blur(0px) grayscale(0%)",
@@ -147,17 +163,19 @@ const Works = ({
         onMouseLeave={() => setHovered(null)}
         src={src}
         alt={text}
-        className="object-cover w-150 h-100"
+        className="object-cover w-150 h-90"
       />
 
-      <h3 className="mt-5">
-        {text} <span className="text-base">&nbsp;( {number} )</span>
+      <h3 className="desc-text mt-4 text-3xl">
+        {text} <span className="text-lg">&nbsp;( {number} )</span>
       </h3>
 
-      <div className="mt-5 pointer-events-none w-50">
-        <p className="desc-text text-lg font-medium mix-blend-difference">
-          {description}
-        </p>
+      <div className="mt-5 pointer-events-none w-120">
+        <h4 className="desc-text text-xl mb-1.5 font-bold">
+          <span className="text-sm mr-1.5 text-monza-600">As a</span>
+          {title}
+        </h4>
+        <p className="desc-text text-base font-medium">{description}</p>
       </div>
     </div>
   );
