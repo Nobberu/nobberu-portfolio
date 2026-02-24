@@ -43,7 +43,7 @@ const RollingText = forwardRef<RollingTextHandle, TextProps>(
           amount: 0.2,
           grid: "auto",
         },
-        duration: 0.35,
+        duration: 0.45,
         ease: "power3.out",
       });
     });
@@ -55,7 +55,7 @@ const RollingText = forwardRef<RollingTextHandle, TextProps>(
           amount: 0.2,
           grid: "auto",
         },
-        duration: 0.35,
+        duration: 0.45,
         ease: "power3.out",
       });
     });

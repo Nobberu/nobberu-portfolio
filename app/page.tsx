@@ -10,7 +10,6 @@ export default function Home() {
       <Hero />
       <Projects />
       <Cta />
-      <div className="h-screen w-screen" />
     </main>
   );
 }

@@ -110,7 +110,7 @@ const Hero = () => {
       ref={hero}
       className="h-svh w-screen flex relative flex-col justify-center items-center p-5 md:p-15"
     >
-      <div className="h-fit w-full flex flex-col justify-center items-center font-bold tracking-[-2%]">
+      <div className="h-fit w-full flex flex-col justify-center items-center font-bold">
         <div className="intro-text w-full flex justify-between items-center text-[10.5px] md:text-2xl overflow-hidden leading-normal">
           <p className="translate-y-full">{"<Based in Indonesia />"}</p>
           <p className="translate-y-full">
@@ -162,7 +162,6 @@ const Hero = () => {
           </h1>
         </div>
       </div>
-
       <div>
         <Link
           href=""

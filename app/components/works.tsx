@@ -166,7 +166,7 @@ const Works = ({
         className="object-cover w-150 h-90"
       />
 
-      <h3 className="desc-text mt-4 text-3xl">
+      <h3 className="desc-text mt-4.5 text-4xl font-sub">
         {text} <span className="text-lg">&nbsp;( {number} )</span>
       </h3>
 

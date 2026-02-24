@@ -30,7 +30,7 @@ const NavItem = ({ item }: { item: { href: string; label: string } }) => {
           ref={itemRef}
           text={item.label}
           size="60px"
-          customClass="font-bold"
+          customClass="font-sub"
         />
       </Link>
     </li>

@@ -14,7 +14,7 @@ const Projects = () => {
   useGSAP(() => {}, []);
   return (
     <div className="bg-light w-screen h-[300vh] flex flex-col px-30">
-      <h1 className="text-5xl py-20">Selected Works</h1>
+      <h1 className="text-5xl py-20 font-sub">Selected Works.</h1>
       <div className="relative w-full text-2xl">
         <Works
           src={Wridev}
