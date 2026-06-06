@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+    --color-light: oklch(95.7% 0.00794 73.7deg);
+    --color-dark: oklch(22.9% 0.0194 66.6deg);
+    --color-dark-z-1: oklch(22.9% 0.0194 66.6deg / 0.75);
+
+    --font-sans: "Inter", sans-serif;
+}
