@@ -1,13 +1,14 @@
 ---
 import Layout from "../layouts/layout.astro";
 import Pixelated from "../components/pixelated.svelte";
+import { ArrowBendRightDown } from "phosphor-svelte";
 
 import bg from "../assets/bg.jpg";
 ---
 
-<Layout pageTitle="Home" description="#" image="#" url="#">
+<Layout pageTitle="Portfolio" description="#" image="#" url="#">
     <!-- Global side border -->
-    <div class="h-screen border-x mx-[7.8125vw] pt-[9.26vh]">
+    <div class="h-fit border-x mx-[7.8125vw] pt-[9.26vh]">
         <!-- Tiny balls -->
         <div class="relative w-full z-5">
             <div class="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 size-3 rounded-full bg-dark"></div>
@@ -15,11 +16,11 @@ import bg from "../assets/bg.jpg";
         </div>
         <!-- Hero -->
         <div class="relative overflow-hidden flex flex-col justify-between p-[5.2vw] h-[77vh] font-bold">
-            <div class="absolute inset-0 pointer-events-auto">
+            <div class="absolute inset-0">
                 <Pixelated
                     client:load
                     imageSrc={bg.src}
-                    grid={20}
+                    grid={15}
                     mouse={0.15}
                     strength={0.15}
                     relaxation={0.9}
@@ -27,20 +28,20 @@ import bg from "../assets/bg.jpg";
                 />
             </div>
 
-            <div class="w-fit z-1 ml-auto text-right pointer-events-none">
+            <p class="w-fit z-1 ml-auto text-right pointer-events-none">
                 turning complexity into clarity<br />through design, interaction,<br />and frontend craft.
-            </div>
+            </p>
 
             <div class="w-fit z-1 pointer-events-none">
-                <h2 class="w-fit text-light bg-dark px-4 py-2 text-2xl tracking-[-1.32px] mb-3">nobbel k. bhumi</h2>
+                <p class="w-fit text-light bg-dark px-4 py-2 text-2xl tracking-[-1.32px] mb-3">nobbel k. bhumi</p>
                 <h1 class="text-8xl tracking-[-5.28px]">
                     creative ui <span class="italic text-4xl text-dark-z-1 tracking-[-1.98px]">into</span>
                     <br />
                     digital experiences
                 </h1>
-                <h2 class="w-fit text-light bg-dark px-4 py-2 text-2xl tracking-[-1.32px] mt-3 ml-auto">
+                <p class="w-fit text-light bg-dark px-4 py-2 text-2xl tracking-[-1.32px] mt-3 ml-auto">
                     based in Indonesia
-                </h2>
+                </p>
             </div>
         </div>
         <!-- Tiny balls & Line -->
@@ -48,6 +49,9 @@ import bg from "../assets/bg.jpg";
             <hr class="mx-[-7.8125vw]" />
             <div class="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 size-3 rounded-full bg-dark"></div>
             <div class="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 size-3 rounded-full bg-dark"></div>
+        </div>
+        <div class="relative overflow-hidden flex flex-col items-center p-[3.125vw] h-[77vh] font-bold">
+            <ArrowBendRightDown weight="fill" class="size-11 text-dark" />
         </div>
     </div>
 </Layout>

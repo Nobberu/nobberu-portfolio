@@ -17,12 +17,50 @@ const { pageTitle, description, image, url } = Astro.props;
         <meta property="og:url" content={url} />
         <meta property="og:image" content={image} />
 
+        <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
             rel="stylesheet"
         />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Nobbel Kaisar Bhumi",
+                "alternateName": "Nobberu",
+                "url": "https://nobberu.me",
+                "jobTitle": "Creative Developer & Frontend Engineer",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "tampak.dev"
+                },
+                "alumniOf": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Politeknik Negeri Malang"
+                },
+                "description": "Creative Developer and Frontend Engineer turning complexity into clarity through design and interaction.",
+                "knowsAbout": [
+                    "Frontend Development",
+                    "UI/UX Design",
+                    "Astro",
+                    "Svelte",
+                    "GSAP",
+                    "TailwindCSS",
+                    "React",
+                    "React Native"
+                ],
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Malang",
+                    "addressRegion": "East Java",
+                    "addressCountry": "ID"
+                },
+                "sameAs": ["https://github.com/nobberu", "https://linkedin.com/in/nobberu"]
+            }
+        </script>
 
         <title>Nobberu - {pageTitle}</title>
     </head>
